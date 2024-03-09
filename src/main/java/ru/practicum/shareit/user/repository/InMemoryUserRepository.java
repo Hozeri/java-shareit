@@ -27,10 +27,8 @@ public class InMemoryUserRepository implements UserRepository {
     @Override
     public User update(User user, Integer userId) {
         User oldUser = users.get(userId);
-        String name = user.getName() == null ? oldUser.getName() : user.getName();
-        String email = user.getEmail() == null ? oldUser.getEmail() : user.getEmail();
-        oldUser.setName(name);
-        oldUser.setEmail(email);
+        if (user.getEmail() != null) oldUser.setEmail(user.getEmail());
+        if (user.getName() != null) oldUser.setEmail(user.getName());
         log.info("Обновлены данные пользователя с id = {}", userId);
         return oldUser;
     }
