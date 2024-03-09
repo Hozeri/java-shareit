@@ -1,5 +1,6 @@
 package ru.practicum.shareit.error;
 
+import ru.practicum.shareit.exception.EmailDuplicateException;
 import ru.practicum.shareit.exception.EntityNotFoundException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
@@ -24,6 +25,13 @@ public class ErrorHandler {
     @ExceptionHandler({ConstraintViolationException.class})
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     public ErrorResponse handleValidationException(final ValidationException e) {
+        log.error(e.getMessage(), e);
+        return new ErrorResponse(e.getMessage());
+    }
+
+    @ExceptionHandler({EmailDuplicateException.class})
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    public ErrorResponse handleEmailDuplicateException(final RuntimeException e) {
         log.error(e.getMessage(), e);
         return new ErrorResponse(e.getMessage());
     }
