@@ -8,5 +8,6 @@ import ru.practicum.shareit.item.model.Item;
 public interface ItemMapper {
 
     ItemDto toItemDto(Item item);
+
     Item toItem(ItemDto itemDto);
 }
