@@ -37,9 +37,9 @@ public class InMemoryItemRepository implements ItemRepository {
     @Override
     public Item updateItem(Item item, Integer itemDtoId) {
         Item oldItem = items.get(itemDtoId);
-        if(item.getName() != null) oldItem.setName(item.getName());
-        if(item.getDescription() != null) oldItem.setDescription(item.getDescription());
-        if(item.getAvailable() != null) oldItem.setAvailable(item.getAvailable());
+        if (item.getName() != null) oldItem.setName(item.getName());
+        if (item.getDescription() != null) oldItem.setDescription(item.getDescription());
+        if (item.getAvailable() != null) oldItem.setAvailable(item.getAvailable());
         log.info("Обновлены данные вещи с id = {}", item.getId());
         return oldItem;
     }
