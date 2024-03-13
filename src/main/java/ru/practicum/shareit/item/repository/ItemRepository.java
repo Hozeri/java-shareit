@@ -8,11 +8,11 @@ public interface ItemRepository {
 
     Item addNewItem(Item item);
 
-    Item updateItem(Item item, Integer itemDtoId);
+    Item updateItem(Item item, Integer itemId);
 
     Item getItemByUserId(Integer userId, Integer itemId);
 
-    Item getItemById(Integer itemDtoId);
+    Item getItemById(Integer itemId);
 
     List<Item> getAllItemsByUserId(Integer userId);
 
