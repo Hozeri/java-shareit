@@ -4,6 +4,8 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import ru.practicum.shareit.validationgroups.Create;
+import ru.practicum.shareit.validationgroups.Update;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
@@ -15,7 +17,7 @@ import javax.validation.constraints.NotBlank;
 public class User {
     private Integer id;
     private String name;
-    @NotBlank
-    @Email
+    @NotBlank(groups = {Create.class})
+    @Email(groups = {Create.class, Update.class})
     private String email;
 }
